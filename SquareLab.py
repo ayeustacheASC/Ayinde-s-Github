@@ -1,0 +1,15 @@
+#AyindeEustache
+from Myro import *
+init("sim")
+penDown()
+penDown("blue")
+forward(2,2)
+turnBy(90)
+forward(2,2)
+turnBy(90)
+forward(2,2)
+turnBy(90)
+forward(2,2)
+turnBy(90)
+forward(2,2)
+penUp()
