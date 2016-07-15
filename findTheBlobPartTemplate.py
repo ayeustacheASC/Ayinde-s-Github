@@ -95,12 +95,11 @@ def findColorSpot(picture, color):
 
 ######################Code Starts Here##################################
 angle = randrange(1,360)
-pic=takePicture()
-while findColorSpot(pic, 3) != -1:
+pic=takePicture() 
+if findColorSpot(pic, 1) != -1:
     turnBy(angle)
     pic=takePicture()
     show(pic)
-    x = findColorSpot(pic, 3) 
-   
-    
-
+    print(findColorSpot(pic, 1))
+if findColorSpot(pic, 1) > 1:
+    stop()
