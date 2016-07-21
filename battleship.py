@@ -1,16 +1,19 @@
+#David Medina and Ayinde Eustache
 from Processing import *
 from random import *
 
 window(500,500)
 grid = []
 def makeGrid():
-    for i in range(0,5):
-        for j in range(0,5):
+    for i in range(0,10):
+        for j in range(0,10):
+            #
             if j == 0:
                 lst = [0]
             else:
                 lst.append(0)
             rect(j * 50,i * 50,50,50)
+            #width = 50 
         grid.append(lst)
 def colorGrid():
     for i in range(0,len(grid)):
@@ -22,14 +25,29 @@ def colorGrid():
             else:
                 fill(255,255,255)
             rect(j * 50,i * 50,50,50)
+def checkRepeated(num,lst):
+    for i in range (len(lst)):
+        if(lst[i] == num) :
+            return True
+    return False
 makeGrid()
 idx1 = randrange(len(grid[0]))
 idx2 = randrange(len(grid[0]))
 
 grid[idx1][idx2] = 1
 
+shipCol = []
+def setRandomShips():
+    for i in range(7):
+        num = randrange(0,len(grid[0]))
+        while checkRepeated(num,shipCol):
+            num = randrange(0,10)
+        shipCol.append(num)
 guess = 0
 print(idx1,idx2)
+
+setRandomShips()
+print(shipCol)
 while guess != [idx1,idx2]:
     guess1 = int(raw_input("Enter first index:")) 
     guess2 = int(raw_input("Enter second index:"))
